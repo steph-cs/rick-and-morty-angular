@@ -1,1 +1,37 @@
 /* You can add global styles to this file, and also import other style files */
+
+:root {
+    --orange: #DA7E2F;
+    --blue: #1B3044;
+    --green: #91BF53;
+    --white: #F6F6F6;
+    --gray: #A1A1A1;
+    --black: #000000;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    border: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1{
+    font-size: 5vw;
+    margin: 10px 0;
+}
+
+.d-flex{
+    display: flex;
+}
+
+.between{
+    justify-content: space-between;
+}
+
+.justify-end{
+    justify-content: end;
+}

@@ -1,0 +1,107 @@
+/*header*/
+.header {
+    margin-bottom: 50px;
+}
+
+.nav-link,
+.menu-link {
+    font-weight: 700;
+}
+
+.header .nav-item{
+    position: relative;
+}
+
+.header .nav-link {
+    color: var(--black);
+    font-size: 3.5vw;
+}
+
+/*nav*/
+.header .nav {
+    padding: 5vw 10vw 5vw 2vw;
+}
+
+/*menu*/
+.menu {
+    margin-top: 2vw;
+}
+
+.menu .menu-item {
+    margin: 1vw 0;
+    position: relative;
+}
+
+.menu .menu-link {
+    color: var(--orange);
+    font-size: 4vw;
+}
+
+/*hover links*/
+.menu-link::before, .nav-link::before {
+    content: "";
+    position: absolute;
+    bottom: 2px;
+    left: 0;
+    width: 0; 
+    height: 3px; 
+    background-color: currentColor; 
+    transition: width 0.7s ease; 
+}
+.menu-link:hover::before, .nav-link:hover::before{
+    width: 100%;
+}
+
+/*aside*/
+.header-aside {
+    position: relative;
+    color: var(--white);
+    background-color: var(--blue);
+    border-radius: 0 0 10vw 10vw;
+    margin-right: 0;
+    padding: 5vw 10vw;
+    height: 70vw;
+}
+
+.header-aside h1 a{
+    color: var(--white);
+}
+
+.header-aside p {
+    font-size: 3.5vw;
+}
+
+.header-aside img {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+@media screen and (min-width: 576px) {
+
+    /*nav*/
+    .header .nav {
+        padding: 5vw 10vw 5vw 10vw;
+    }
+
+    .header .nav-link {
+        font-size: 3vw;
+    }
+
+    /*menu*/
+    .menu .menu-link {
+        font-size: 3.5vw;
+    }
+
+    /*aside*/
+    .header-aside {
+        margin-right: 30px;
+        border-radius: 0 0 100px 100px;
+        height: 50vw;
+    }
+
+    .header-aside p {
+        font-size: 2.5vw;
+    }
+
+}
