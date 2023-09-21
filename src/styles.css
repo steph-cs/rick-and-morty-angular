@@ -3,10 +3,12 @@
 :root {
     --orange: #DA7E2F;
     --blue: #1B3044;
+    --light-blue: #DAE6E9;
     --green: #91BF53;
     --white: #F6F6F6;
     --gray: #A1A1A1;
     --black: #000000;
+    --red: #B3261E;
 }
 
 * {
@@ -28,8 +30,20 @@ h1{
     display: flex;
 }
 
+.flex-wrap{
+    flex-wrap: wrap;
+}
+
+.align-center{
+    align-items: center;
+}
+
 .between{
     justify-content: space-between;
+}
+
+.around{
+    justify-content: space-around;
 }
 
 .justify-end{

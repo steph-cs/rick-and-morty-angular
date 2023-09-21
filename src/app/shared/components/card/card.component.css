@@ -1,0 +1,44 @@
+/*card*/
+.card {
+    margin: 15px;
+    background-color: var(--blue);
+    border-radius: 25px;
+    width: 300px;
+}
+
+.card-img img {
+    border-radius: 25px;
+}
+
+.title {
+    position: relative;
+}
+
+.title h3 {
+    color: var(--white);
+    padding: 25px 0 25px 25px;
+}
+
+.alive h3::before,
+.dead h3::before,
+.unknown h3::before {
+    content: "";
+    position: absolute;
+    left: 10px;
+    bottom: calc(50% - 4px);
+    width: 8px;
+    height: 8px;
+    border-radius: 100%;
+}
+
+.alive h3::before {
+    background-color: var(--green);
+}
+
+.dead h3::before {
+    background-color: var(--red);
+}
+
+.unknown h3::before {
+    background-color: var(--gray);
+}
