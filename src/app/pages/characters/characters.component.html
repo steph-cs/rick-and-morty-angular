@@ -1,19 +1,38 @@
 <div class="content">
     <h2 class="title">Characters</h2>
-    <div *ngIf="characters.length > 0; else erroTemplate" class="d-flex flex-wrap around list-cards">
+
+    <ng-container>
+        <div class="d-flex flex-wrap">
+            <ng-container *ngFor="let filter of filtersType">
+                <ng-container *ngIf="filter.filter == 'text'">
+                    <app-text-filter [label]="filter.type" [placeholder]="filter.type"
+                        (inputFilter)="addFilter(filter.type ,$event)">
+                    </app-text-filter>
+                </ng-container>
+                <ng-container *ngIf="filter.filter == 'checkbox'">
+                    <!--Checkbox filter-->
+                </ng-container>
+            </ng-container>
+        </div>
+    </ng-container>
+
+    <div *ngIf="characters.length > 0 && error == ''; else erroTemplate" class="d-flex flex-wrap around list-cards">
         <ng-container *ngFor="let character of characters">
-            <app-card
-            [img]="character.image" 
-            [name]="character.name" 
-            [status]="character.status"
-            ></app-card>
+            <app-card [img]="character.image" [name]="character.name" [status]="character.status"></app-card>
         </ng-container>
     </div>
 </div>
 
 <ng-template #erroTemplate>
-    <div class="error">
-        <p>Erro interdimensional: Portal de dados instável.<br>Tente novamente em outra realidade.</p>
-        <button (click)="getCharacters()" class="btn">Reload</button>
-    </div>
+    <ng-container *ngIf="error == '404'">
+        <div class="error">
+            <p>Oops, no results found in this reality.</p>
+        </div>
+    </ng-container>
+    <ng-container *ngIf="error != '404'">
+        <div class="error">
+            <p>Erro interdimensional: Portal de dados instável.<br>Tente novamente em outra realidade.</p>
+            <button (click)="getCharacters()" class="btn">Reload</button>
+        </div>
+    </ng-container>
 </ng-template>

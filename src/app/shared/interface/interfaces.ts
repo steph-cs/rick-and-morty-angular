@@ -1,3 +1,5 @@
+import { FilterCharactersType, FiltersType } from "./types"
+
 export interface ICharacters {
     info: {},
     results: ICharacter,
@@ -22,4 +24,14 @@ export interface ICharacter {
     episode: string[],
     url: string,
     created: string
+}
+
+export interface IFilter{
+    type: string,
+    value: string|string[] 
+}
+
+export interface ICharacterFilters{
+    type: FilterCharactersType,
+    filter: FiltersType
 }
