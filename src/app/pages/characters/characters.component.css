@@ -1,0 +1,50 @@
+.content {
+    background-color: var(--light-blue);
+    padding: 50px 0;
+    position: relative;
+}
+
+.content .title {
+    position: absolute;
+    top: -5vw;
+    left: 50px;
+    color: var(--orange);
+    font-size: 7vw;
+    font-weight: 700;
+}
+
+.list-cards {
+    margin: 50px;
+}
+
+/*error*/
+
+.error {
+    margin: 50px;
+}
+
+.error p {
+    font-size: 1.5vw;
+    font-weight: 500;
+}
+
+.btn {
+    padding: 5px 10px;
+    margin: 30px 0;
+    border-radius: 10px;
+    border: 2px solid var(--orange);
+    font-size: 1.3vw;
+    font-weight: 500;
+    transition: all 0.3s;
+}
+
+.btn:hover {
+    background-color: var(--orange);
+    color: white;
+    border-color: var(--orange);
+}
+
+.btn:focus {
+    outline: none;
+    box-shadow: 0 0 5px var(--orange);
+}
