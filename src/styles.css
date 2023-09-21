@@ -30,6 +30,10 @@ h1{
     display: flex;
 }
 
+.f-column{
+    flex-direction: column;
+}
+
 .flex-wrap{
     flex-wrap: wrap;
 }

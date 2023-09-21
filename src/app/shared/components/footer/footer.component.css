@@ -1,0 +1,66 @@
+.m-t-20 {
+    margin: 20px 0;
+}
+
+footer {
+    border-top: 1px solid var(--gray);
+    padding: 50px;
+}
+
+.title a {
+    color: var(--blue);
+    font-weight: 600;
+}
+
+.subtitle p {
+    color: var(--black);
+}
+
+/*powered*/
+
+.powered p {
+    color: var(--gray);
+}
+
+.powered a {
+    color: var(--green);
+}
+
+/*nav*/
+
+.nav-item,
+.menu-item {
+    padding: 0 15px;
+}
+
+.nav-link,
+.menu-link {
+    font-weight: 600;
+}
+
+.nav-link {
+    color: var(--black);
+}
+
+/*menu*/
+.menu .menu-link {
+    color: var(--orange);
+}
+
+/*social*/
+
+.dev {
+    font-weight: 600;
+}
+
+.social a:hover{
+    fill: var(--orange);
+}
+
+/*links hover*/
+
+.nav-link:hover,
+.menu-link:hover,
+.powered a:hover {
+    border-bottom: 1px solid currentColor;
+}
