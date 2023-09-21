@@ -1,0 +1,31 @@
+.checkbox-filter {
+    margin-bottom: 25px;
+}
+
+.title{
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+.filter label{
+    margin-left: 5px;
+    text-transform: capitalize;
+}
+
+.filter {
+    width: 75vw;
+    border-radius: 20px;
+}
+
+
+.option{
+    margin: 5px 0;
+}
+
+@media screen and (min-width: 576px) {
+
+    .filter {
+        width: 15vw;
+    }
+
+}

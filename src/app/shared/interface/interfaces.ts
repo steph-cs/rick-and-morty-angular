@@ -1,4 +1,4 @@
-import { FilterCharactersType, FiltersType } from "./types"
+import { FilterCharactersType, FilterGenderType, FilterStatusType, FiltersType } from "./types"
 
 export interface ICharacters {
     info: {},
@@ -26,12 +26,13 @@ export interface ICharacter {
     created: string
 }
 
-export interface IFilter{
+export interface IFilter {
     type: string,
-    value: string|string[] 
+    value: string | string[]
 }
 
-export interface ICharacterFilters{
+export interface ICharacterFilters {
     type: FilterCharactersType,
-    filter: FiltersType
+    filter: FiltersType,
+    options: FilterGenderType[] | FilterStatusType[]
 }

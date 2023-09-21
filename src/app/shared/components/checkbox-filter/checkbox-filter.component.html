@@ -1,0 +1,17 @@
+<div class="checkbox-filter">
+    <div class="title">
+        {{label}}
+    </div>
+
+    <form [id]="label" class="filter">
+        <ng-container *ngFor="let filter of filters">
+            <div class="option">
+                <input [id]="filter" type="radio" [value]="filter" [(ngModel)]="selectedFilter"
+                    [ngModelOptions]="{standalone: true}" (change)="checkValue($event)">
+                <label [for]="filter">{{filter}}</label>
+            </div>
+
+        </ng-container>
+    </form>
+
+</div>

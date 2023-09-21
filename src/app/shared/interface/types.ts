@@ -6,3 +6,15 @@ export type FilterCharactersType =
 export type FiltersType =
     'text'
     | 'checkbox'
+
+export type FilterGenderType =
+    'all'
+    | 'female'
+    | 'male'
+    | 'unknown'
+
+export type FilterStatusType =
+    'all'
+    | 'alive'
+    | 'dead'
+    | 'unknown'

@@ -15,16 +15,19 @@ export class CharactersComponent implements OnInit {
     public filtersType: ICharacterFilters[] = [
         {
             type: 'name',
-            filter: 'text'
+            filter: 'text',
+            options: []
         },
         {
             type: 'status',
-            filter: 'text'
+            filter: 'checkbox',
+            options: ['all', 'alive', 'dead', 'unknown']
         },
         {
             type: 'gender',
-            filter: 'checkbox'
-        },
+            filter: 'checkbox',
+            options: ['all', 'female', 'male', 'unknown']
+        }
     ]
 
     constructor(
@@ -65,10 +68,10 @@ export class CharactersComponent implements OnInit {
             );
     }
 
-    addFilter(type: string, value: string) {
+    addFilter(type: string, value: any) {
         let filter: IFilter = {
             type: type,
-            value: value
+            value: value != 'all' ? value : ''
         }
         this.characterService.setFilter(filter)
         this.filterCharacters()

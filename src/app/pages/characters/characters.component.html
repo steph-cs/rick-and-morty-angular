@@ -2,7 +2,7 @@
     <h2 class="title">Characters</h2>
 
     <ng-container>
-        <div class="d-flex flex-wrap">
+        <div class="d-flex flex-wrap around filters">
             <ng-container *ngFor="let filter of filtersType">
                 <ng-container *ngIf="filter.filter == 'text'">
                     <app-text-filter [label]="filter.type" [placeholder]="filter.type"
@@ -10,7 +10,9 @@
                     </app-text-filter>
                 </ng-container>
                 <ng-container *ngIf="filter.filter == 'checkbox'">
-                    <!--Checkbox filter-->
+                    <app-checkbox-filter [label]="filter.type" [filters]="filter.options"
+                        (inputCheckbox)="addFilter(filter.type ,$event)">
+                    </app-checkbox-filter>
                 </ng-container>
             </ng-container>
         </div>
