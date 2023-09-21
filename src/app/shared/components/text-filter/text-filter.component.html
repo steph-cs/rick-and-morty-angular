@@ -1,0 +1,5 @@
+<div class="text-filter">
+    <label for="filter">{{label}}</label>
+    <input id="filter" type="text" [placeholder]="placeholder" 
+    [(ngModel)]="value" (keyup)="newInputValue(value)">
+</div>

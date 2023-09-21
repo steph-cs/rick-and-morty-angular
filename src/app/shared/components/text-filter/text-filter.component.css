@@ -1,0 +1,35 @@
+.text-filter {
+    margin: 0 0 0 50px;
+}
+
+.text-filter label {
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+.text-filter input {
+    display: block;
+    background-color: var(--green);
+    color: var(--black);
+    width: 75vw;
+    padding: 10px 15px;
+    margin: 10px 0;
+    border-radius: 20px;
+}
+
+.text-filter input:focus {
+    outline: none;
+    box-shadow: 0 0 5px var(--green);
+}
+
+.text-filter input::placeholder {
+    color: var(--white);
+}
+
+@media screen and (min-width: 576px) {
+
+    .text-filter input {
+        width: 25vw;
+    }
+
+}
