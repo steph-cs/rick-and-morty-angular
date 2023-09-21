@@ -1,0 +1,12 @@
+<div class="d-flex modal">
+    <div class="modal-img">
+        <img [src]="data.image" alt="" width="100%">
+    </div>
+
+    <div mat-dialog-content class="content">
+        <div class="info" *ngFor="let info of data | keyvalue: unsorted">
+            {{info.key}}: {{info.value}}
+        </div>
+
+    </div>
+</div>

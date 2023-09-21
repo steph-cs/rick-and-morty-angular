@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ICharacter, ICharacterFilters, IFilter } from 'src/app/shared/interface/interfaces';
+import { ICharacter, ICharacterFilters, ICharacterInfo, IFilter } from 'src/app/shared/interface/interfaces';
 import { FilterCharactersType } from 'src/app/shared/interface/types';
 import { CharacterService } from 'src/app/shared/services/character.service';
 
@@ -77,4 +77,25 @@ export class CharactersComponent implements OnInit {
         this.filterCharacters()
     }
 
+    mapCharacterInfos( character: ICharacter): ICharacterInfo{
+        let characterInfo: ICharacterInfo = {
+            name: character.name,
+            status: character.status,
+            gender: character.gender,
+            type: character.type,
+            species: character.species,
+            firstEpisode: character.episode[0],
+            lastEpisode: character.episode[character.episode.length -1],
+            image: character.image,
+            location: {
+                name: character.location.name,
+                url: character.location.url
+            },
+            origin: {
+                name: character.origin.name,
+                url: character.origin.url
+            }
+        }
+        return characterInfo
+    }
 }

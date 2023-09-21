@@ -1,0 +1,11 @@
+.info {
+    padding: 5px;
+    text-transform: capitalize;
+}
+
+.modal {
+    background: var(--blue);
+    color: var(--white);
+    flex-wrap: wrap;
+}
+

@@ -20,7 +20,7 @@
 
     <div *ngIf="characters.length > 0 && error == ''; else erroTemplate" class="d-flex flex-wrap around list-cards">
         <ng-container *ngFor="let character of characters">
-            <app-card [img]="character.image" [name]="character.name" [status]="character.status"></app-card>
+            <app-card [content]="mapCharacterInfos(character)" [img]="character.image" [name]="character.name" [status]="character.status"></app-card>
         </ng-container>
     </div>
 </div>

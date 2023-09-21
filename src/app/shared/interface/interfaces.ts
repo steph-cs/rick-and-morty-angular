@@ -26,6 +26,25 @@ export interface ICharacter {
     created: string
 }
 
+export interface ICharacterInfo {
+    name: string,
+    status: string,
+    species: string,
+    type: string,
+    gender: string,
+    origin: {
+        name: string,
+        url: string
+    },
+    location: {
+        name: string,
+        url: string
+    },
+    image: string,
+    firstEpisode: string,
+    lastEpisode: string
+}
+
 export interface IFilter {
     type: string,
     value: string | string[]
@@ -36,3 +55,4 @@ export interface ICharacterFilters {
     filter: FiltersType,
     options: FilterGenderType[] | FilterStatusType[]
 }
+
