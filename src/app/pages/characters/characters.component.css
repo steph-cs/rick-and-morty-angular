@@ -52,3 +52,17 @@
     outline: none;
     box-shadow: 0 0 5px var(--orange);
 }
+
+.mat-mdc-paginator {
+    margin: auto;
+    width: 50vw;
+    border-radius: 25px;
+    border: 1px solid var(--orange);
+    color: var(--black);
+    font-weight: 500;
+    background-color: var(--white);
+}
+
+::ng-deep .mat-mdc-paginator-icon{
+    fill: var(--black);
+}

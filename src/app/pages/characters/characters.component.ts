@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ICharacter, ICharacterFilters, ICharacterInfo, IFilter } from 'src/app/shared/interface/interfaces';
+import { ICharacter, ICharacterFilters, ICharacterInfo, IFilter, IPaginator } from 'src/app/shared/interface/interfaces';
 import { FilterCharactersType } from 'src/app/shared/interface/types';
 import { CharacterService } from 'src/app/shared/services/character.service';
 
@@ -11,6 +11,12 @@ import { CharacterService } from 'src/app/shared/services/character.service';
 export class CharactersComponent implements OnInit {
 
     public characters: ICharacter[] = [];
+    public paginator: IPaginator = {
+        count: 0,
+        pages: 0,
+        next: '',
+        prev: ''
+    }
     public error: string = "";
     public filtersType: ICharacterFilters[] = [
         {
@@ -38,26 +44,13 @@ export class CharactersComponent implements OnInit {
         this.getCharacters()
     }
 
-    async getCharacters(): Promise<void> {
-        this.characterService.getCharacters()
+    async getCharacters(page?: number, filter?: IFilter): Promise<void> {
+        this.characterService.getCharacters(page? page: undefined)
             .subscribe(
                 {
                     next: (response) => {
-                        this.characters = Object.values(response.results)
-                        this.error = ''
-                    },
-                    error: (error) => {
-                        this.error = error.status
-                    }
-                }
-            );
-    }
-
-    async filterCharacters(): Promise<void> {
-        this.characterService.filterCharacter()
-            .subscribe(
-                {
-                    next: (response) => {
+                        this.paginator = response.info
+                        console.log(this.paginator)
                         this.characters = Object.values(response.results)
                         this.error = ''
                     },
@@ -74,7 +67,7 @@ export class CharactersComponent implements OnInit {
             value: value != 'all' ? value : ''
         }
         this.characterService.setFilter(filter)
-        this.filterCharacters()
+        this.getCharacters(undefined, filter)
     }
 
     mapCharacterInfos( character: ICharacter): ICharacterInfo{

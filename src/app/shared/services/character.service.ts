@@ -13,23 +13,33 @@ export class CharacterService {
 
     constructor(private http: HttpClient) { }
 
-    getCharacters(): Observable<ICharacters> {
+    getCharacters(page?: number): Observable<ICharacters> {
         let requestURL = this.baseUrl;
+        if (page) {
+            page++
+            if (page && this.filters.length > 0) {
+                requestURL = requestURL.concat('/?page=' + page + '&')
+                requestURL = requestURL.concat(this.buildFilterCharacter())
+            } else {
+                requestURL = requestURL.concat('?page=' + page)
+            }
+        }
+        else if (this.filters.length > 0) {
+            requestURL = requestURL.concat('/?' + this.buildFilterCharacter())
+        }
         let request: Observable<ICharacters> = this.http.get<ICharacters>(requestURL);
         return request
     }
 
-    filterCharacter(): Observable<ICharacters> {
-        let filterUrl: string = "/?";
+    buildFilterCharacter(): string {
+        let filterUrl: string = ''
         this.filters.forEach(f => {
             filterUrl = filterUrl.concat(f.type + '=' + f.value)
             if (f != this.filters[this.filters.length - 1]) {
                 filterUrl = filterUrl.concat('&')
             }
         });
-        let requestURL = this.baseUrl + filterUrl;
-        let request: Observable<ICharacters> = this.http.get<ICharacters>(requestURL);
-        return request
+        return filterUrl
     }
 
     setFilter(filter: IFilter): void {

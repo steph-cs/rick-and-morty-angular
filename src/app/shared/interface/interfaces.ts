@@ -1,7 +1,7 @@
 import { FilterCharactersType, FilterGenderType, FilterStatusType, FiltersType } from "./types"
 
 export interface ICharacters {
-    info: {},
+    info: IPaginator,
     results: ICharacter,
 }
 
@@ -54,5 +54,12 @@ export interface ICharacterFilters {
     type: FilterCharactersType,
     filter: FiltersType,
     options: FilterGenderType[] | FilterStatusType[]
+}
+
+export interface IPaginator {
+    count: number,
+    pages: number,
+    next: string,
+    prev: string
 }
 

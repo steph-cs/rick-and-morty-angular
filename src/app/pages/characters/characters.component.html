@@ -1,6 +1,7 @@
 <div class="content">
     <h2 class="title">Characters</h2>
 
+    <!--Filters-->
     <ng-container>
         <div class="d-flex flex-wrap around filters">
             <ng-container *ngFor="let filter of filtersType">
@@ -18,13 +19,22 @@
         </div>
     </ng-container>
 
-    <div *ngIf="characters.length > 0 && error == ''; else erroTemplate" class="d-flex flex-wrap around list-cards">
-        <ng-container *ngFor="let character of characters">
-            <app-card [content]="mapCharacterInfos(character)" [img]="character.image" [name]="character.name" [status]="character.status"></app-card>
-        </ng-container>
-    </div>
+    <!--List of cards-->
+    <ng-container *ngIf="characters.length > 0 && error == ''; else erroTemplate">
+        <div class="d-flex flex-wrap around list-cards">
+            <ng-container *ngFor="let character of characters">
+                <app-card [content]="mapCharacterInfos(character)" [img]="character.image" [name]="character.name"
+                    [status]="character.status"></app-card>
+            </ng-container>
+        </div>
+        <mat-paginator [length]="paginator.count" [pageSize]="10" aria-label="Select page"
+            (page)="getCharacters($event.pageIndex)">
+        </mat-paginator>
+    </ng-container>
+
 </div>
 
+<!--Error templates-->
 <ng-template #erroTemplate>
     <ng-container *ngIf="error == '404'">
         <div class="error">
