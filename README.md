@@ -1,7 +1,7 @@
 # 🛸 Rick and Morty
 ## Exploring Multiverses, Characters, and Interdimensional Madness
 
-### Access at: https://rickandmortyapi.com/
+### Access at: https://steph-cs.github.io/rick-and-morty-angular/
 
 **Angular application for listing and describing characters, locations, and episodes from the TV show Rick And Morty. The application consumes the API:** [The Rick And Morty API](https://rickandmortyapi.com/).
 
