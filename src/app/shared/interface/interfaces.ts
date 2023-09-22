@@ -86,3 +86,26 @@ export interface ILocationInfo {
     firstResident: string,
     lastResident: string
 }
+
+export interface IEpisodes {
+    info: IPaginator,
+    results: IEpisode,
+}
+
+export interface IEpisode {
+    id: number,
+    name: string,
+    air_date: string,
+    episode: string,
+    characters: string[],
+    url: string,
+    created: string
+}
+
+export interface IEpisodeInfo {
+    id: number,
+    name: string,
+    airDate: string,
+    episode: string,
+    totalCharacters: number
+}
