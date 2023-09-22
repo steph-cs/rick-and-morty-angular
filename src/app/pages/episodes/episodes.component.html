@@ -2,7 +2,17 @@
     <h2 class="title">Episodes</h2>
 
     <!--Filters-->
-
+    <ng-container>
+        <div class="d-flex flex-wrap around filters">
+            <ng-container *ngFor="let filter of filtersType">
+                <ng-container *ngIf="filter.filter == 'text'">
+                    <app-text-filter [label]="filter.type" [placeholder]="filter.type"
+                        (inputFilter)="addFilter(filter.type ,$event)">
+                    </app-text-filter>
+                </ng-container>
+            </ng-container>
+        </div>
+    </ng-container>
 
     <!--List of cards-->
     <ng-container *ngIf="episodes.length > 0 && error == ''; else erroTemplate">
@@ -12,6 +22,9 @@
                     ></app-card>
             </ng-container>
         </div>
+        <mat-paginator [length]="paginator.count" [pageSize]="20" aria-label="Select page"
+            (page)="getEpisodes($event.pageIndex)">
+        </mat-paginator>
     </ng-container>
 
 </div>

@@ -3,6 +3,15 @@ export type FilterCharactersType =
     | 'status'
     | 'gender'
 
+export type FilterEpisodesType =
+    'name'
+    | 'episode'
+
+export type FilterLocationsType =
+    'name'
+    | 'type'
+    | 'dimension'
+
 export type FiltersType =
     'text'
     | 'checkbox'

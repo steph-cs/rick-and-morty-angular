@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IEpisode, IEpisodeInfo } from 'src/app/shared/interface/interfaces';
+import { IEpisode, IEpisodeFilters, IEpisodeInfo, IFilter, IPaginator } from 'src/app/shared/interface/interfaces';
 import { EpisodeService } from 'src/app/shared/services/episode.service';
 
 @Component({
@@ -11,7 +11,23 @@ export class EpisodesComponent {
 
 
     public episodes: IEpisode[] = [];
+    public paginator: IPaginator = {
+        count: 0,
+        pages: 0,
+        next: '',
+        prev: ''
+    }
     public error: string = "";
+    public filtersType: IEpisodeFilters[] = [
+        {
+            type: 'name',
+            filter: 'text'
+        },
+        {
+            type: 'episode',
+            filter: 'text'
+        }
+    ]
 
     constructor(
         private episodeService: EpisodeService
@@ -21,11 +37,12 @@ export class EpisodesComponent {
         this.getEpisodes()
     }
 
-    async getEpisodes(): Promise<void> {
-        this.episodeService.getEpisodes()
+    async getEpisodes(page?: number): Promise<void> {
+        this.episodeService.getEpisodes(page ? page : undefined)
             .subscribe(
                 {
                     next: (response) => {
+                        this.paginator = response.info
                         this.episodes = Object.values(response.results)
                         this.error = ''
                     },
@@ -34,6 +51,15 @@ export class EpisodesComponent {
                     }
                 }
             );
+    }
+
+    addFilter(type: string, value: any) {
+        let filter: IFilter = {
+            type: type,
+            value: value != 'all' ? value : ''
+        }
+        this.episodeService.setFilter(filter)
+        this.getEpisodes()
     }
 
     mapEpisodeInfos(episode: IEpisode): IEpisodeInfo {

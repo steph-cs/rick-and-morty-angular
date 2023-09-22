@@ -1,4 +1,4 @@
-import { FilterCharactersType, FilterGenderType, FilterStatusType, FiltersType } from "./types"
+import { FilterCharactersType, FilterEpisodesType, FilterGenderType, FilterLocationsType, FilterStatusType, FiltersType } from "./types"
 
 export interface ICharacters {
     info: IPaginator,
@@ -54,6 +54,16 @@ export interface ICharacterFilters {
     type: FilterCharactersType,
     filter: FiltersType,
     options: FilterGenderType[] | FilterStatusType[]
+}
+
+export interface IEpisodeFilters {
+    type: FilterEpisodesType,
+    filter: FiltersType
+}
+
+export interface ILocationFilters {
+    type: FilterLocationsType,
+    filter: FiltersType
 }
 
 export interface IPaginator {
