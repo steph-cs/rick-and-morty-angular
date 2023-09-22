@@ -1,0 +1,15 @@
+<div class="content">
+    <h2 class="title">Home</h2>
+
+    <app-text-section [title]='homeContent.about.title' [content]='homeContent.about.content'>
+    </app-text-section>
+
+    <app-text-section [title]='homeContent.site.title' [content]='homeContent.site.content'>
+    </app-text-section>
+
+
+    <div class="d-flex flex-wrap around list-btn">
+        <app-button *ngFor="let value of homeContent.site.menu" [value]="value"></app-button>
+    </div>
+
+</div>

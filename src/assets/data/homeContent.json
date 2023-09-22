@@ -1,0 +1,15 @@
+{
+    "about": {
+        "title": "Rick and Morty Tv Show",
+        "content": "Rick and Morty is an adult animated series that follows the wild adventures of Rick, a brilliant yet alcoholic scientist, and his grandson Morty as they travel through dimensions and alternate realities. The series blends comedy, satire, and elements of science fiction to create a unique experience. It is known for its irreverent humor, clever satire, and exploration of philosophical themes, making it one of the most popular and influential adult animated series of today."
+    },
+    "site": {
+        "title": "Exploring the Multiverse",
+        "content": "Dive into the multiverse and explore the characters, universes, and episodes of 'Rick and Morty'!",
+        "menu": [
+            "characters",
+            "locations",
+            "episodes"
+        ]
+    }
+}

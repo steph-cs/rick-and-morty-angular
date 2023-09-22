@@ -1,0 +1,17 @@
+.text-section {
+    margin: 5vw 10vw;
+}
+
+.text-section-title {
+    font-size: 7vw;
+}
+
+.text-section-content {
+    margin: 20px 0;
+}
+
+@media screen and (min-width: 576px) {
+    .text-section-title {
+        font-size: 4vw;
+    }
+}
