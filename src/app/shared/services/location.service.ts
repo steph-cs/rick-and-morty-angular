@@ -13,7 +13,7 @@ export class LocationService {
 
     constructor(private http: HttpClient) { }
 
-    getLocations(page?: number): Observable<any> {
+    getLocations(page?: number): Observable<ILocations> {
         let requestURL = this.baseUrl;
         if (page) {
             page++

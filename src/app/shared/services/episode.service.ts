@@ -13,7 +13,7 @@ export class EpisodeService {
 
     constructor(private http: HttpClient) { }
 
-    getEpisodes(page?: number): Observable<any> {
+    getEpisodes(page?: number): Observable<IEpisodes> {
         let requestURL = this.baseUrl;
         if (page) {
             page++
