@@ -3,9 +3,23 @@
         <img [src]="data.image" alt="" width="100%">
     </div>
 
-    <div mat-dialog-content>
-        <div class="info" *ngFor="let info of data | keyvalue: unsorted">
-            {{info.key}}: {{info.value}}
-        </div>
+    <div mat-dialog-content class="info">
+        <ng-container *ngFor="let info of content | keyvalue: unsorted">
+            <div class="row" *ngIf="info.key != '' && info.value != ''">
+                <div class="key" *ngIf="info.key !== 'name'">
+                    {{ info.key }}:
+                </div>
+                <div class="value" [ngClass]="{'title': info.key === 'name'}">
+                    <ng-container *ngIf="typeOf(info.value) === 'string' && info.value != ''">
+                        {{ info.value }}
+                    </ng-container>
+                    <ng-container *ngIf="typeOf(info.value) === 'object'">
+                        <ng-container *ngFor="let subInfo of info.value | keyvalue: unsorted">
+                            {{ subInfo.value }}<br>
+                        </ng-container>
+                    </ng-container>
+                </div>
+            </div>
+        </ng-container>
     </div>
 </div>

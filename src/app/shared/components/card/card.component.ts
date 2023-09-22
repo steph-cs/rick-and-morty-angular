@@ -20,7 +20,10 @@ export class CardComponent {
 
     openDialog() {
         this.dialog.open(ModalComponent, {
-            data: this.content
+            data: {
+                image: this.img,
+                content: this.content
+            }
         });
     }
 }

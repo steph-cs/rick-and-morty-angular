@@ -40,7 +40,6 @@ export interface ICharacterInfo {
         name: string,
         url: string
     },
-    image: string,
     firstEpisode: string,
     lastEpisode: string
 }
@@ -89,7 +88,6 @@ export interface ILocation {
 }
 
 export interface ILocationInfo {
-    id: number,
     name: string,
     type: string,
     dimension: string,
@@ -113,9 +111,13 @@ export interface IEpisode {
 }
 
 export interface IEpisodeInfo {
-    id: number,
     name: string,
     airDate: string,
     episode: string,
     totalCharacters: number
+}
+
+export interface IModalInfo {
+    image: string,
+    content: ICharacterInfo | ILocationInfo | IEpisodeInfo
 }

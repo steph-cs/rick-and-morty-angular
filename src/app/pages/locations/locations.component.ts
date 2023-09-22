@@ -67,7 +67,6 @@ export class LocationsComponent {
 
     mapLocationInfos(location: ILocation): ILocationInfo {
         let locationInfo: ILocationInfo = {
-            id: location.id,
             name: location.name,
             type: location.type,
             dimension: location.dimension,

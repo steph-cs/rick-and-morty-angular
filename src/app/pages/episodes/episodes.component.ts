@@ -64,7 +64,6 @@ export class EpisodesComponent {
 
     mapEpisodeInfos(episode: IEpisode): IEpisodeInfo {
         let episodeInfo: IEpisodeInfo = {
-            id: episode.id,
             name: episode.name,
             airDate: episode.air_date,
             episode: episode.episode,

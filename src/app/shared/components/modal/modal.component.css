@@ -1,11 +1,43 @@
 .info {
     padding: 5px;
-    text-transform: capitalize;
 }
 
 .modal {
     background: var(--blue);
     color: var(--white);
-    flex-wrap: wrap;
 }
 
+.key,
+.value {
+    text-transform: capitalize;
+}
+
+.key {
+    color: var(--gray);
+}
+
+.value {
+    color: var(--white);
+}
+
+.title {
+    font-size: 2rem;
+    font-weight: 500;
+    margin: 20px 0;
+}
+
+.row{
+    margin: 10px 0;
+}
+
+::ng-deep .mat-mdc-dialog-surface {
+    height: 300px !important;
+    width: 80vw !important;
+    overflow: hidden;
+    border-radius: 25px !important;
+}
+
+::ng-deep .mdc-dialog__container .modal-img,
+::ng-deep .mdc-dialog__container .mat-mdc-dialog-content {
+    height: 300px !important;
+}

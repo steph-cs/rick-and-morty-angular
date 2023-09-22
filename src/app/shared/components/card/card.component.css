@@ -4,6 +4,9 @@
     background-color: var(--blue);
     border-radius: 25px;
     width: 300px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s, opacity 0.3s;
+    cursor: pointer;
 }
 
 .card-img img {
@@ -49,4 +52,9 @@
 
 .unknown h3::before {
     background-color: var(--gray);
+}
+
+.card:hover {
+    box-shadow: 0 8px 12px var(--black);
+    opacity: 0.7;
 }

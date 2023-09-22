@@ -78,7 +78,6 @@ export class CharactersComponent implements OnInit {
             species: character.species,
             firstEpisode: character.episode[0],
             lastEpisode: character.episode[character.episode.length - 1],
-            image: character.image,
             location: {
                 name: character.location.name,
                 url: character.location.url
