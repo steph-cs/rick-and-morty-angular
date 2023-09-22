@@ -63,3 +63,26 @@ export interface IPaginator {
     prev: string
 }
 
+export interface ILocations {
+    info: IPaginator,
+    results: ILocation,
+}
+
+export interface ILocation {
+    id: number,
+    name: string,
+    type: string,
+    dimension: string,
+    residents: string[],
+    url: string,
+    created: string
+}
+
+export interface ILocationInfo {
+    id: number,
+    name: string,
+    type: string,
+    dimension: string,
+    firstResident: string,
+    lastResident: string
+}

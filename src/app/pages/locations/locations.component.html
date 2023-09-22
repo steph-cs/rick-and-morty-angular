@@ -1,0 +1,32 @@
+<div class="content">
+    <h2 class="title">Locations</h2>
+
+    <!--Filters-->
+
+
+    <!--List of cards-->
+    <ng-container *ngIf="locations.length > 0 && error == ''; else erroTemplate">
+        <div class="d-flex flex-wrap around list-cards">
+            <ng-container *ngFor="let location of locations">
+                <app-card [content]="mapLocationInfos(location)" img="assets/imgs/location.png" [name]="location.name"
+                    ></app-card>
+            </ng-container>
+        </div>
+    </ng-container>
+
+</div>
+
+<!--Error templates-->
+<ng-template #erroTemplate>
+    <ng-container *ngIf="error == '404'">
+        <div class="error">
+            <p>Oops, no results found in this reality.</p>
+        </div>
+    </ng-container>
+    <ng-container *ngIf="error != '404'">
+        <div class="error">
+            <p>Erro interdimensional: Portal de dados instável.<br>Tente novamente em outra realidade.</p>
+            <button (click)="getLocations()" class="btn">Reload</button>
+        </div>
+    </ng-container>
+</ng-template>

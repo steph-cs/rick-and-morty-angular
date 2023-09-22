@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalComponent } from '../modal/modal.component';
-import { ICharacter, ICharacterInfo } from '../../interface/interfaces';
+import { ICharacterInfo, ILocationInfo } from '../../interface/interfaces';
 
 @Component({
     selector: 'app-card',
@@ -9,8 +9,9 @@ import { ICharacter, ICharacterInfo } from '../../interface/interfaces';
     styleUrls: ['./card.component.css']
 })
 export class CardComponent {
-    @Input() content: ICharacterInfo | undefined;
+    @Input() content: ICharacterInfo | ILocationInfo | undefined;
     @Input() typeCard: string = "";
+    @Input() id: number = 0
     @Input() img: string = ""
     @Input() name: string = ""
     @Input() status: string = ""
@@ -19,8 +20,7 @@ export class CardComponent {
 
     openDialog() {
         this.dialog.open(ModalComponent, {
-            data: this.content,
-            panelClass: 'myClass'
+            data: this.content
         });
     }
 }
