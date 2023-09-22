@@ -44,13 +44,12 @@ export class CharactersComponent implements OnInit {
         this.getCharacters()
     }
 
-    async getCharacters(page?: number, filter?: IFilter): Promise<void> {
-        this.characterService.getCharacters(page? page: undefined)
+    async getCharacters(page?: number): Promise<void> {
+        this.characterService.getCharacters(page ? page : undefined)
             .subscribe(
                 {
                     next: (response) => {
                         this.paginator = response.info
-                        console.log(this.paginator)
                         this.characters = Object.values(response.results)
                         this.error = ''
                     },
@@ -67,10 +66,10 @@ export class CharactersComponent implements OnInit {
             value: value != 'all' ? value : ''
         }
         this.characterService.setFilter(filter)
-        this.getCharacters(undefined, filter)
+        this.getCharacters(undefined)
     }
 
-    mapCharacterInfos( character: ICharacter): ICharacterInfo{
+    mapCharacterInfos(character: ICharacter): ICharacterInfo {
         let characterInfo: ICharacterInfo = {
             name: character.name,
             status: character.status,
@@ -78,7 +77,7 @@ export class CharactersComponent implements OnInit {
             type: character.type,
             species: character.species,
             firstEpisode: character.episode[0],
-            lastEpisode: character.episode[character.episode.length -1],
+            lastEpisode: character.episode[character.episode.length - 1],
             image: character.image,
             location: {
                 name: character.location.name,

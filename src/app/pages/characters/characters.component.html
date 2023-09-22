@@ -27,7 +27,7 @@
                     [status]="character.status"></app-card>
             </ng-container>
         </div>
-        <mat-paginator [length]="paginator.count" [pageSize]="10" aria-label="Select page"
+        <mat-paginator [length]="paginator.count" [pageSize]="20" aria-label="Select page"
             (page)="getCharacters($event.pageIndex)">
         </mat-paginator>
     </ng-container>
