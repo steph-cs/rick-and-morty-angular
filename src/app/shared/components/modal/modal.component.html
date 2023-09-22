@@ -10,7 +10,7 @@
                     {{ info.key }}:
                 </div>
                 <div class="value" [ngClass]="{'title': info.key === 'name'}">
-                    <ng-container *ngIf="typeOf(info.value) === 'string' && info.value != ''">
+                    <ng-container *ngIf="typeOf(info.value) === 'string' || typeOf(info.value) ==='number' && info.value != ''">
                         {{ info.value }}
                     </ng-container>
                     <ng-container *ngIf="typeOf(info.value) === 'object'">
