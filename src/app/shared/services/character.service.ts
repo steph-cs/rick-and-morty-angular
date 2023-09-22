@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ICharacters, IFilter } from '../interface/interfaces';
+import { UtilService } from './util.service';
 
 @Injectable({
     providedIn: 'root'
@@ -19,50 +20,19 @@ export class CharacterService {
             page++
             if (page && this.filters.length > 0) {
                 requestURL = requestURL.concat('/?page=' + page + '&')
-                requestURL = requestURL.concat(this.buildFilterCharacter())
+                requestURL = requestURL.concat(UtilService.buildFilter(this.filters))
             } else {
                 requestURL = requestURL.concat('?page=' + page)
             }
         }
         else if (this.filters.length > 0) {
-            requestURL = requestURL.concat('/?' + this.buildFilterCharacter())
+            requestURL = requestURL.concat('/?' + UtilService.buildFilter(this.filters))
         }
         let request: Observable<ICharacters> = this.http.get<ICharacters>(requestURL);
         return request
     }
 
-    buildFilterCharacter(): string {
-        let filterUrl: string = ''
-        this.filters.forEach(f => {
-            filterUrl = filterUrl.concat(f.type + '=' + f.value)
-            if (f != this.filters[this.filters.length - 1]) {
-                filterUrl = filterUrl.concat('&')
-            }
-        });
-        return filterUrl
+    setFilter(filter: IFilter): void{
+        this.filters = UtilService.setFilter(filter, this.filters)
     }
-
-    setFilter(filter: IFilter): void {
-        if ((Array.isArray(filter.value) && !(filter.value as string[]).length) || filter.value === '') {
-            this.removeFilter(filter);
-        } else {
-            this.addFilter(filter);
-        }
-    }
-
-    removeFilter(filter: IFilter): void {
-        this.filters = this.filters.filter(e => e.type !== filter.type);
-    }
-
-    addFilter(filter: IFilter): void {
-        const index = this.filters.findIndex(e => {
-            return e.type === filter.type;
-        });
-        if (index === -1) {
-            this.filters.push(filter);
-        } else {
-            this.filters[index] = filter;
-        }
-    }
-
 }
