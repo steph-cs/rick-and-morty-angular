@@ -1,0 +1,47 @@
+.not-found {
+    margin: 50px 0;
+    overflow: hidden;
+}
+
+.not-found-content {
+    background-color: var(--blue);
+    padding: 30px;
+    margin: 20px 0;
+    width: 100%;
+    border-radius: 0 25px 25px 0;
+}
+
+.not-found h3,
+.not-found .btn {
+    color: var(--orange);
+}
+
+.not-found p {
+    color: var(--white);
+    margin: 15px 0;
+}
+
+.not-found .btn {
+    margin: 0 10px;
+    padding: 2px 10px;
+    border: 1px solid var(--white);
+    border-radius: 10px;
+    transition: all 0.3s;
+    font-weight: 500;
+}
+
+.not-found .btn:hover {
+    color: var(--white);
+    border-color: var(--orange);
+}
+
+.not-found .btn:focus {
+    outline: none;
+    box-shadow: 0 0 5px var(--orange);
+}
+
+@media screen and (min-width: 576px) {
+    .not-found-content {
+        width: 50%;
+    }
+}

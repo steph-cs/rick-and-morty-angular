@@ -1,0 +1,59 @@
+.nav-link,
+.menu-link {
+    font-weight: 700;
+}
+
+.nav-item {
+    position: relative;
+}
+
+.nav-link {
+    color: var(--black);
+}
+
+.nav-link,
+.menu-link {
+    font-size: 4vw;
+}
+
+/*nav*/
+.nav {
+    margin: 2vw;
+}
+
+/*menu*/
+
+.menu .menu-item {
+    margin: 1vw 15px;
+    position: relative;
+}
+
+.menu .menu-link {
+    color: var(--orange);
+}
+
+/*hover links*/
+.menu-link::before,
+.nav-link::before {
+    content: "";
+    position: absolute;
+    bottom: 2px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background-color: currentColor;
+    transition: width 0.7s ease;
+}
+
+.menu-link:hover::before,
+.nav-link:hover::before {
+    width: 100%;
+}
+
+@media screen and (min-width: 576px) {
+
+    .nav-link,
+    .menu-link {
+        font-size: 2vw;
+    }
+}
